@@ -1,0 +1,48 @@
+@media print {
+    /* Hide the print button */
+    button, .no-print {
+      display: none !important;
+    }
+  
+    /* Set page layout for A4 size */
+    body {
+      -webkit-print-color-adjust: exact;
+      margin: 0;
+      padding: 0;
+    }
+  
+    /* Ensure the content takes up the full width of the page */
+    .print-container {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  
+    /* Adjust font sizes for print */
+    h2, h4 {
+      font-size: 18pt;
+    }
+    p {
+      font-size: 12pt;
+    }
+  
+    /* Adjust table layout */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #000;
+      text-align: left;
+    }
+  
+    /* Ensure proper margins on printed page */
+    .invoice-content {
+      margin: 0 auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 100%;
+    }
+  }
+  
