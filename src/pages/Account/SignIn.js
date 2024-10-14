@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { logoLight } from "../../assets/images";
+// import { logoLight } from "../../assets/images";
 import { login } from "../../axios/auth";
 import { useNavigate } from "react-router-dom";
 

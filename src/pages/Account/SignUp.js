@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { BsCheckCircleFill } from "react-icons/bs";
+// import { BsCheckCircleFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
-import { logoLight } from "../../assets/images";
-import apiInstance from "../../axios/axios";
+// import { logoLight } from "../../assets/images";
+// import apiInstance from "../../axios/axios";
 import { register } from "../../axios/auth";
 
 const SignUp = () => {

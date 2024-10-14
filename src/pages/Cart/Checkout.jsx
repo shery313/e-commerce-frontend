@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import CartID from '../../components/plugins/CartID';
+// import CartID from '../../components/plugins/CartID';
 import apiInstance from '../../axios/axios';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../../assets/images';
 import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
@@ -12,15 +12,15 @@ function Checkout() {
     const [order, setOrder] = useState({});
     const [couponCode, setCouponCode] = useState("");
     const [loading, setLoading] = useState(false);
-    const [paymentLoading, setPaymentLoading] = useState(false);
-    const [codLoading, setCodLoading] = useState(false);
+    // const [paymentLoading, setPaymentLoading] = useState(false);
+    // const [codLoading, setCodLoading] = useState(false);
 
-    const axios = apiInstance;
-    let cart_id = CartID();
-    let navigate = useNavigate();
+    // const axios = apiInstance;
+    // let cart_id = CartID();
+    // let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`checkout/${params?.order_id}/`).then((res) => {
+        apiInstance.get(`checkout/${params?.order_id}/`).then((res) => {
             setOrder(res.data);
         });
     }, [loading, params?.order_id]);
@@ -44,7 +44,7 @@ function Checkout() {
         formdata.append("coupon_code", couponCode);
 
         try {
-            const response = await axios.post('coupon/', formdata);
+            const response = await apiInstance.post('coupon/', formdata);
             if (response.data.message === "Coupon Activated") {
                 setLoading(false);
                 Swal.fire({
@@ -73,7 +73,7 @@ function Checkout() {
     };
 
     const codFormHandling = (event) => {
-        setCodLoading(true);
+        // setCodLoading(true);
         event.target.form.submit();
     };
 

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import  { useEffect, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
-import { resetCart } from "../../redux/orebiSlice";
+// import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
+// import { resetCart } from "../../redux/orebiSlice";
 import { emptyCart } from "../../assets/images/index";
-import ItemCard from "./ItemCard";
+// import ItemCard from "./ItemCard";
 import { useContext } from "react";
 import { CartContext } from "../../components/plugins/Context";
 import GetCurrentAddress from "../../components/plugins/UserCountry";
@@ -14,7 +14,7 @@ import CartID from "../../components/plugins/CartID";
 import apiInstance from "../../axios/axios";
 import Swal from "sweetalert2";
 import { addToCart } from "../../components/plugins/AddToCart";
-import { FaCircle } from "react-icons/fa";
+// import { FaCircle } from "react-icons/fa";
 import { MdUpdate } from "react-icons/md";
 import UserData from "../../components/plugins/UserData";
 
@@ -23,7 +23,7 @@ const Cart = () => {
   const [cart, setCart] = useState([])
   const [cartTotal, setCartTotal] = useState([])
   const [productQuantities, setProductQuantities] = useState({});
-  let [isAddingToCart, setIsAddingToCart] = useState('')
+  // let [isAddingToCart, setIsAddingToCart] = useState('')
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
   const [mobile, setMobile] = useState("")
@@ -34,8 +34,8 @@ const Cart = () => {
   const [cartCount, setCartCount] = useContext(CartContext);
   // const dispatch = useDispatch();
   // const products = useSelector((state) => state.orebiReducer.products);
-  const [totalAmt, setTotalAmt] = useState("");
-  const [shippingCharge, setShippingCharge] = useState("");
+  // const [totalAmt, setTotalAmt] = useState("");
+  // const [shippingCharge, setShippingCharge] = useState("");
   const axios = apiInstance
   const userData = UserData();
   let cart_id = CartID()
@@ -112,7 +112,7 @@ const Cart = () => {
       initialQuantities[c.product.id] = c.qty
     });
     setProductQuantities(initialQuantities);
-  }, productQuantities);
+  }, [productQuantities,cart]);
 
   const handleQtyChange = (event, product_id) => {
     const quantity = event.target.value;
@@ -124,14 +124,11 @@ const Cart = () => {
   const UpdateCart = async (cart_id, item_id, product_id, price, shipping_amount, color, size) => {
     const qtyValue = productQuantities[product_id];
 
-    // console.log("cart_id:", cart_id);
-    // console.log("item_id:", item_id);
-    // console.log("qtyValue:", qtyValue);
-    // console.log("product_id:", product_id);
+    
 
     try {
       // Await the addToCart function
-      await addToCart(product_id, userData?.user_id, qtyValue, price, shipping_amount, currentAddress.country, color, size, cart_id, isAddingToCart);
+      await addToCart(product_id, userData?.user_id, qtyValue, price, shipping_amount, currentAddress.country, color, size, cart_id);
 
       // Fetch the latest cart data after addToCart is completed
       fetchCartData(cart_id, userData?.user_id)
@@ -254,7 +251,7 @@ const Cart = () => {
                     <div key={index} className="grid grid-cols-3 items-start gap-4">
                       <div className="col-span-2 flex items-start gap-4">
                         <div className="w-28 h-28 max-sm:w-24 max-sm:h-24 shrink-0 bg-gray-100 p-2 rounded-md">
-                          <img src={p?.product?.image} className="w-full h-full object-contain" />
+                          <img src={p?.product?.image} alt={p?.product?.title} className="w-full h-full object-contain" />
                         </div>
 
                         <div className="flex flex-col">

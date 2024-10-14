@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaCity, FaMapMarkerAlt, FaReceipt, FaPrint } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import apiInstance from '../../axios/axios';
-import print from './print.css'
+// import print from './print.css'
 function Invoice() {
   const [order, setOrder] = useState([]);
   const [orderItems, setOrderItems] = useState([]);
-  const axios = apiInstance;
+  // const apiInstance = apiInstance;
   const param = useParams();
 
   useEffect(() => {
-    axios.get(`checkout/${param?.order_oid}/`).then((res) => {
+    apiInstance.get(`checkout/${param?.order_oid}/`).then((res) => {
       setOrder(res.data);
       setOrderItems(res.data.orderitem);
     });
-  }, [param]);
+  }, [param?.order_oid]);
 
   const handlePrint = () => {
     window.print();

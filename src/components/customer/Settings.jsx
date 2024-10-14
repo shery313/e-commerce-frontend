@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Sidebar from './SideBar';
 import apiInstance from '../../axios/axios';
 import UserData from '../plugins/UserData';
-import UseProfileData from '../plugins/UserProfileData';
+// import UseProfileData from '../plugins/UserProfileData';
 import Swal from 'sweetalert2'
 
 
@@ -48,7 +48,7 @@ function Settings() {
         };
 
         fetchProfileData();
-    }, []);
+    }, [userData?.user_id]);
 
 
     const handleInputChange = (event) => {

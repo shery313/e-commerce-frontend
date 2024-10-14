@@ -64,7 +64,7 @@ const Contact = () => {
       setErrMessages("Enter your Messages");
     }
     if (clientName && email && EmailValidation(email) && messages) {
-      const response= await apiInstance.post('contact/',{
+      await apiInstance.post('contact/',{
         name:clientName,
         email:email,
         order:order,

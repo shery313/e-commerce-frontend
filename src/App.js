@@ -33,7 +33,7 @@ import OrderSuccess from "./pages/Cart/OrderSuccess";
 import { PriceContext,SizeContext,CategoryContext,ColorContext,BrandContext } from "./components/plugins/Context";
 import Invoice from "./pages/Cart/Invoice";
 // import Profile from "./components/customer/Profile";
-import OrderHistory from "./components/customer/Orders";
+// import OrderHistory from "./components/customer/Orders";
 import Notification from "./components/customer/Notification";
 import Settings from "./components/customer/Settings";
 import Wishlist from "./components/customer/Wishlist";

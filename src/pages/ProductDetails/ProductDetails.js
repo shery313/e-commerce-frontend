@@ -1,50 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Breadcrumbs from "../../components/pageProps/Breadcrumbs";
 import ProductInfo from "../../components/pageProps/productDetails/ProductInfo";
-import { FaDownload } from "react-icons/fa";
 
-const tabs = [
-  {
-    id: "Fiche Technique",
-    label: "Fiche Technique",
-  },
-  {
-    id: "Description",
-    label: "Description",
-    content:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
-  },
-  {
-    id: "Video",
-    label: "Video",
-    content: (
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/watch?v=6e0yIRDVPlA&list=RD6e0yIRDVPlA&start_radio=1"
-        title="YouTube Video"
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-    ),
-  },
-  // Add more tabs as needed
-];
+
+// const tabs = [
+//   {
+//     id: "Fiche Technique",
+//     label: "Fiche Technique",
+//   },
+//   {
+//     id: "Description",
+//     label: "Description",
+//     content:
+//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
+//   },
+//   {
+//     id: "Video",
+//     label: "Video",
+//     content: (
+//       <iframe
+//         width="560"
+//         height="315"
+//         src="https://www.youtube.com/embed/watch?v=6e0yIRDVPlA&list=RD6e0yIRDVPlA&start_radio=1"
+//         title="YouTube Video"
+//         frameBorder="0"
+//         allowFullScreen
+//       ></iframe>
+//     ),
+//   },
+//   // Add more tabs as needed
+// ];
 
 const ProductDetails = () => {
   const location = useLocation();
-  const [prevLocation, setPrevLocation] = useState("");
+  // const [prevLocation, setPrevLocation] = useState("");
   const [productInfo, setProductInfo] = useState([]);
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  // const [activeTab, setActiveTab] = useState(tabs[0].id);
 
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId);
-  };
+  // const handleTabClick = (tabId) => {
+  //   setActiveTab(tabId);
+  // };
 
   useEffect(() => {
     setProductInfo(location.state.item);
-    setPrevLocation(location.pathname);
+    // setPrevLocation(location.pathname);
   }, [location, productInfo.ficheTech]);
 
   return (

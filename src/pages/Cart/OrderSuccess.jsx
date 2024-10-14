@@ -3,34 +3,34 @@ import apiInstance from '../../axios/axios';
 import { useParams, Link } from 'react-router-dom';
 
 function OrderSuccess() {
-    const [loading, setIsLoading] = useState(true);
+    // const [loading, setIsLoading] = useState(true);
     const [order, setOrder] = useState({});
     const [orderItems, setOrderItems] = useState([]);
     const param = useParams();
-    const axios = apiInstance;
+    // const axios = apiInstance;
 
     useEffect(() => {
-        axios.get(`checkout/${param?.order_oid}/`).then((res) => {
+        apiInstance.get(`checkout/${param?.order_oid}/`).then((res) => {
             setOrder(res.data);
             setOrderItems(res.data.orderitem);
         });
-    }, [param]);
+    }, [param.order_oid]);
 
     useEffect(() => {
         const formData = new FormData();
         formData.append('order_oid', param?.order_oid);
 
-        setIsLoading(true);
+        // setIsLoading(true);
 
-        axios.post(`order-success/`, formData).then((res) => {
+        apiInstance.post(`order-success/`, formData).then((res) => {
             if (res.data.message === "Payment Successfull") {
-                setIsLoading(false);
+                // setIsLoading(false);
             }
             if (res.data.message === "Already Paid") {
-                setIsLoading(false);
+                // setIsLoading(false);
             }
         });
-    }, [param?.order_oid]);
+    }, [param.order_oid]);
 
     const getProgressWidth = () => {
         if (order?.status === 'Placed') return '25%';

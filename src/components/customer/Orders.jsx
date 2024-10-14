@@ -10,18 +10,18 @@ function Orders() {
     const [fullfilled, setFullfilled] = useState([]);
     const [pending, setPending] = useState([]);
 
-    const axios = apiInstance;
+    // const axios = apiInstance;
     const userData = UserData();
 
     useEffect(() => {
         if (userData?.user_id) {
-            axios.get(`customer/orders/${userData?.user_id}/`).then((res) => {
+            apiInstance.get(`customer/orders/${userData?.user_id}/`).then((res) => {
                 setOrders(res.data);
             });
-            axios.get(`fullfilled/${userData?.user_id}/`).then((res) => {
+            apiInstance.get(`fullfilled/${userData?.user_id}/`).then((res) => {
                 setFullfilled(res.data);
             });
-            axios.get(`pending/${userData?.user_id}/`).then((res) => {
+            apiInstance.get(`pending/${userData?.user_id}/`).then((res) => {
                 setPending(res.data);
             });
         }

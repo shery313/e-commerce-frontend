@@ -11,9 +11,9 @@ const Brand = () => {
   const [showBrands, setShowBrands] = useState(true);
   const {selectedBrand,updateBrand}=useContext( BrandContext);
   
-  const checkedBrands = useSelector(
-    (state) => state.orebiReducer.checkedBrands
-  );
+  // const checkedBrands = useSelector(
+  //   (state) => state.orebiReducer.checkedBrands
+  // );
   const dispatch = useDispatch();
   const [brands,setBrands]=useState([]);
   useEffect(() => {

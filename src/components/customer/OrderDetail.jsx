@@ -21,7 +21,7 @@ function OrderDetail() {
         setLoading(false);
       }
     });
-  }, []);
+  }, [userData?.user_id]);
 
   return (
     <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen">
