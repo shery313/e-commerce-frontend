@@ -14,7 +14,7 @@ import { CartContext } from "../../plugins/Context";
 import UserData from "../../plugins/UserData";
 import moment from "moment";
 import { motion } from "framer-motion";
-import UpdatedStars from "./UpdatedStars";
+// import UpdatedStars from "./UpdatedStars";
 const ProductInfo = ({ productInfo }) => {
 
 
@@ -31,10 +31,10 @@ const ProductInfo = ({ productInfo }) => {
   const currentAddress = GetCurrentAddress();
   const [createReview, setCreateReview] = useState({ user_id: 0, product_id: product?.id, review: "", rating: 0, })
   const [reviews, setReviews] = useState([]);
-  let [loading, setLoading] = useState(true);
+  // let [loading, setLoading] = useState(true);c
   //   const[carCount,setCartCount]=useContext(CartContext)
-  const [cartCount, setCartCount] = useContext(CartContext);
-  const axios = apiInstance
+  const {setCartCount} = useContext(CartContext);
+  // const axios = apiInstance
   const handleQtyChange = (event) => {
     event.preventDefault()
     setQtyValue(event.target.value)
@@ -54,7 +54,7 @@ const ProductInfo = ({ productInfo }) => {
       await addToCart(product.id, userData?.user_id, qtyValue, product.price, product.shipping_amount, currentAddress.country, sizeValue, colorValue, cart_id, setIsAddingToCart);
 
       const url = userData?.user_id ? `cart-list/${cart_id}/${userData?.user_id}/` : `cart-list/${cart_id}/`;
-      const response = await axios.get(url);
+      const response = await apiInstance.get(url);
 
       setCartCount(response.data.length);
       console.log(response.data.length);
@@ -77,7 +77,12 @@ const ProductInfo = ({ productInfo }) => {
     formdata.append('rating', createReview.rating)
     formdata.append('review', createReview.review)
 
-    axios.post(`create-review/`, formdata).then((res) => {
+    apiInstance.post(`create-review/`, formdata).then((res) => {
+      const fetchReviewData = async () => {
+        await apiInstance.get(`reviews/${product.id}/`).then((res) => {
+          setReviews(res.data);
+        })
+      }
       fetchReviewData()
       Swal.fire({
         icon: "success",
@@ -85,13 +90,7 @@ const ProductInfo = ({ productInfo }) => {
       })
     })
   }
-  const fetchData = async () => {
-    const response = await apiInstance.get(`products/${query}`)
-    await setProduct(response.data)
-
-
-
-  }
+  
   const handleReviewChange = (event) => {
     setCreateReview({
       ...createReview,
@@ -99,18 +98,26 @@ const ProductInfo = ({ productInfo }) => {
     })
   }
 
-  const fetchReviewData = async () => {
-    await axios.get(`reviews/${product.id}/`).then((res) => {
-      setReviews(res.data);
-    })
-  }
+ 
   useEffect(() => {
-    if (product.id) {
-      fetchReviewData()
+    // if (product.id) {
+    const fetchReviewData = async () => {
+      await apiInstance.get(`reviews/${product.id}/`).then((res) => {
+        setReviews(res.data);
+      })
     }
+    fetchReviewData()
+    // }
 
   }, [product.id])
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await apiInstance.get(`products/${query}`)
+      await setProduct(response.data)
+  
+  
+  
+    }
     fetchData();
 
   }, [query, sizeValue, colorValue])
@@ -315,7 +322,7 @@ const ProductInfo = ({ productInfo }) => {
                     </svg> */}
                   </div>
                   <p className="sr-only">{product?.product_rating} out of 5 stars</p>
-                  <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">({reviews.length} reviews)</a>
+                  <p className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">({reviews.length} reviews)</p>
                 </div>
               </div>
 
@@ -368,7 +375,7 @@ const ProductInfo = ({ productInfo }) => {
                 <div className="mt-5">
                   <div className="flex items-center justify-between">
                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                    <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size guide</a>
+                    <a href="/" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">Size guide</a>
                   </div>
 
                   <fieldset aria-label="Choose a size" className="mt-4 ">
@@ -514,7 +521,7 @@ const ProductInfo = ({ productInfo }) => {
               <div class="grid grid-cols-12 max-w-sm sm:max-w-full mx-auto">
                 <div class="col-span-12 lg:col-span-10 ">
                   <div class="sm:flex gap-6">
-                    <img src={r.profile.image} alt="Robert image" class="md:w-32 md:h-32 h-20 w-20 rounded-full" />
+                    <img src={r.profile.image} alt={r.profile.full_name} class="md:w-32 md:h-32 h-20 w-20 rounded-full" />
                     <div class="text">
                       <p class="font-medium text-lg leading-8 text-gray-900 mb-2">{r.profile.full_name}</p>
                       <div class="flex lg:hidden items-center gap-2 lg:justify-between w-full mb-5">
@@ -587,7 +594,7 @@ const ProductInfo = ({ productInfo }) => {
                       <p class="font-normal text-base leading-7 text-gray-400 mb-4 lg:pr-8">{r.review} </p>
                       <div class="flex items-center justify-between">
                         <div class="cursor-pointers flex items-center gap-2">
-                          <a href="javascript:;" class="font-semibold text-lg cursor-pointer leading-8 text-indigo-600 whitespace-nowrap">
+                          <a href="/" class="font-semibold text-lg cursor-pointer leading-8 text-indigo-600 whitespace-nowrap">
                             View & Reply</a>
                           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
                             viewBox="0 0 22 22" fill="none">

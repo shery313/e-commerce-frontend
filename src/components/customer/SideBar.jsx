@@ -7,7 +7,7 @@ import apiInstance from '../../axios/axios';
 
 function Sidebar() {
   const userData = UserData();
-  const axios = apiInstance;
+  // const axios = apiInstance;
   const [notifications, setNotifications] = useState('');
   const userProfile = UseProfileData();
   const [loading, setLoading] = useState(true);
@@ -15,20 +15,20 @@ function Sidebar() {
   const [wishlist, setWishlist] = useState('');
 
   const clickSeen = () => {
-    axios.put(`customer/notification/update/${userData?.user_id}/`).then((res) => console.log(res.data));
+    apiInstance.put(`customer/notification/update/${userData?.user_id}/`).then((res) => console.log(res.data));
   };
 
   useEffect(() => {
-    axios.get(`customer/orders/${userData?.user_id}/`).then((res) => setOrders(res.data));
-  }, []);
+    apiInstance.get(`customer/orders/${userData?.user_id}/`).then((res) => setOrders(res.data));
+  }, [userData?.user_id]);
 
   useEffect(() => {
-    axios.get(`customer/wishlist/${userData?.user_id}/`).then((res) => setWishlist(res.data));
-  }, []);
+    apiInstance.get(`customer/wishlist/${userData?.user_id}/`).then((res) => setWishlist(res.data));
+  }, [userData?.user_id]);
 
   useEffect(() => {
     if (userProfile) {
-      axios.get(`un-seen/notification/${userData?.user_id}`).then((res) => {
+      apiInstance.get(`un-seen/notification/${userData?.user_id}`).then((res) => {
         setNotifications(res.data);
         if (notifications) {
           setLoading(false);
@@ -36,7 +36,7 @@ function Sidebar() {
       });
       setLoading(false);
     }
-  }, [userProfile, notifications]);
+  }, [userProfile, notifications,userData?.user_id]);
 
   return (
     <div className="lg:w-1/4 md:w-1/3 w-full md:m-5">

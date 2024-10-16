@@ -6,19 +6,17 @@ import moment from 'moment';
 
 function Notifications() {
     const [notifications, setNotifications] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
-    const axios = apiInstance;
+    // const axios = apiInstance;
     const userData = UserData();
 
     useEffect(() => {
-        axios.get(`customer/notification/${userData?.user_id}/`).then((res) => {
+        apiInstance.get(`customer/notification/${userData?.user_id}/`).then((res) => {
             setNotifications(res.data);
-            if (notifications) {
-                setLoading(false);
-            }
+            
         });
-    }, []);
+    }, [userData?.user_id]);
 
     return (
         <div>

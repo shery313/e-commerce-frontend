@@ -152,15 +152,15 @@ function App() {
   };
     const userData = null;
     let cart_id = CartID()
-    const axios = apiInstance
+    // const axios = apiInstance
 
 
     useEffect(() => {
         const url = userData?.user_id ? `cart-list/${cart_id}/${userData?.user_id}/` : `cart-list/${cart_id}/`;
-        axios.get(url).then((res) => {
+        apiInstance.get(url).then((res) => {
             setCartCount(res.data.length)
         });
-    }, [])
+    }, [cart_id])
   
   return (
     <div className="font-bodyFont bg-[#E3F2FD] text-[#007BFF]">

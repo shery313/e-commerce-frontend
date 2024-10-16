@@ -3,13 +3,7 @@ import Slider from "react-slick";
 import Heading from "../Products/Heading";
 import apiInstance from "../../../axios/axios";
 import Product from "../Products/Product";
-import {
-  newArrOne,
-  newArrTwo,
-  newArrThree,
-  newArrFour,
-  organic
-} from "../../../assets/images/index";
+
 import SampleNextArrow from "./SampleNextArrow";
 import SamplePrevArrow from "./SamplePrevArrow";
 
@@ -21,7 +15,7 @@ const NewArrivals = () => {
     slidesToScroll: 1,
     autoplay:true,
     autoplaySpeed:3000,
-    speed:500,
+    // speed:500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -33,7 +27,7 @@ const NewArrivals = () => {
           infinite: true,
           autoplay:true,
           autoplaySpeed:3000,
-          speed:500,
+          // speed:500,
         },
       },
       {

@@ -9,19 +9,19 @@ function OrderDetail() {
   const [orderItems, setOrderItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const axios = apiInstance;
+  // const axios = apiInstance;
   const userData = UserData();
   const param = useParams();
 
   useEffect(() => {
-    axios.get(`customer/order/detail/${userData?.user_id}/${param?.order_oid}`).then((res) => {
+    apiInstance.get(`customer/order/detail/${userData?.user_id}/${param?.order_oid}`).then((res) => {
       setOrder(res.data);
       setOrderItems(res.data.orderitem);
       if (order) {
         setLoading(false);
       }
     });
-  }, [userData?.user_id]);
+  }, [userData?.user_id,param?.order_oid,order]);
 
   return (
     <div className="flex flex-col md:flex-row bg-gray-50 min-h-screen">

@@ -30,10 +30,10 @@ const HeaderBottom = () => {
   }, [show, ref]);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [showSearchBar, setShowSearchBar] = useState(false);
+  // const [showSearchBar, setShowSearchBar] = useState(false);
   const cartCount = useContext(CartContext);
   
-  const [category, setCategory] = useState([]);
+  // const [category, setCategory] = useState([]);
   const [query, setQuery] = useState('');
   
   const handleSearch = (e) => {
@@ -45,12 +45,12 @@ const HeaderBottom = () => {
       const response = await apiInstance.get(`search/?query=${query}`);
       setFilteredProducts(response.data);
     };
-    const fetchCategory = async () => {
-      const response = await apiInstance.get(`category`);
-      setCategory(response.data);
-    };
+    // const fetchCategory = async () => {
+    //   const response = await apiInstance.get(`category`);
+    //   setCategory(response.data);
+    // };
     fetchData();
-    fetchCategory();
+    // fetchCategory();
   }, [query]);
 
   return (
@@ -74,7 +74,7 @@ const HeaderBottom = () => {
                     onClick={() =>
                       navigate(`/product/${item.slug.toLowerCase().split(" ").join("")}`, {
                         state: { item: item },
-                      }) & setShowSearchBar(true) & setQuery("")
+                      })  & setQuery("")
                     }
                     key={item.id}
                     className="max-w-[600px] h-28 bg-[#E3F2FD] mb-3 flex items-center gap-3 p-4 rounded-lg shadow-sm"

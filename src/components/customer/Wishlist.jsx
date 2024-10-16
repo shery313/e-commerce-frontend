@@ -9,27 +9,41 @@ import { addToWishlist } from '../plugins/addToWishList';
 function Wishlist() {
     const [wishlist, setWishlist] = useState([]);
 
-    const axios = apiInstance;
+    // const axios = apiInstance;
     const userData = UserData();
 
-    const fetchWishlist = async () => {
-        try {
-            const response = await axios.get(`customer/wishlist/${userData?.user_id}/`);
-            setWishlist(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    // const fetchWishlist = async () => {
+    //     try {
+    //         const response = await apiInstance.get(`customer/wishlist/${userData?.user_id}/`);
+    //         setWishlist(response.data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     useEffect(() => {
-        if (userData?.user_id) {
-            fetchWishlist();
-        }
+        const fetchWishlist = async () => {
+            try {
+                const response = await apiInstance.get(`customer/wishlist/${userData?.user_id}/`);
+                setWishlist(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+       fetchWishlist();
     }, [userData?.user_id]);
 
     const handleAddToWishlist = async (product_id) => {
         try {
             await addToWishlist(product_id, userData?.user_id);
+            const fetchWishlist = async () => {
+                try {
+                    const response = await apiInstance.get(`customer/wishlist/${userData?.user_id}/`);
+                    setWishlist(response.data);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
             fetchWishlist();
         } catch (error) {
             console.log(error);

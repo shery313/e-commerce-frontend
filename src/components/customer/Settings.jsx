@@ -21,14 +21,14 @@ function Settings() {
     const [loading, setLoading] = useState(false)
     
 
-    const axios = apiInstance
+    // const axios = apiInstance
     const userData = UserData()
 
     useEffect(() => {
         // Fetch existing profile data
         const fetchProfileData = async () => {
             try {
-                axios.get(`user/profile/${userData?.user_id}/`).then((res) => {
+                apiInstance.get(`user/profile/${userData?.user_id}/`).then((res) => {
                     // setProfileData(res.data);
                     setProfileData({
                         'full_name': res.data?.full_name,
@@ -70,7 +70,7 @@ function Settings() {
         e.preventDefault();
         setLoading(true)
 
-        const res = await axios.get(`user/profile/${userData?.user_id}/`);
+        const res = await apiInstance.get(`user/profile/${userData?.user_id}/`);
 
         const formData = new FormData();
         if (profileData.p_image && profileData.p_image !== res.data.image) {
