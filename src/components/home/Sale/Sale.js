@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Image from "../../designLayouts/Image";
-import { banner1, Banner2 } from "../../../assets/images/index";
+import {  Banner2 } from "../../../assets/images/index";
 const banners = ['/banner5.avif', Banner2, '/banner3.avif', '/banner6.avif'];
 
 const Sale = () => {

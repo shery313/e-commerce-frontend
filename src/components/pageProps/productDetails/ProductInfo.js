@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";/
 // import { addToCart } from "../../../redux/orebiSlice";
 import { useParams } from "react-router-dom";
 import apiInstance from "../../../axios/axios";

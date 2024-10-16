@@ -31,7 +31,7 @@ const Cart = () => {
   const [city, setCity] = useState("")
   const [state, setState] = useState("pakistan")
   const [country, setCountry] = useState("pakistan")
-  const [cartCount, setCartCount] = useContext(CartContext);
+  const { setCartCount} = useContext(CartContext);
   // const dispatch = useDispatch();
   // const products = useSelector((state) => state.orebiReducer.products);
   // const [totalAmt, setTotalAmt] = useState("");

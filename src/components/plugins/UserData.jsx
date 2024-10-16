@@ -15,6 +15,7 @@ function UserData() {
 
         // Extract the user's unique identifier (user_id) from the decoded token
         const user_id = decoded.user_id;
+        console.log(user_id)
 
         // Return the decoded user data, which may include user information
         return decoded;

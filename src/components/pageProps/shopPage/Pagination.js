@@ -28,7 +28,7 @@ function Items() {
   }
   useEffect(()=>{
     fetchData();
-  },[data])
+  })
   const filteredItems=data
   
 

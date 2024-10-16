@@ -1,6 +1,6 @@
 import React from "react";
-import { CgAdd } from "react-icons/cg";
-import { CgRedo } from "react-icons/cg";
+// import { CgAdd } from "react-icons/cg";
+// import { CgRedo } from "react-icons/cg";
 import { FaShippingFast } from "react-icons/fa";
 import { MdContactSupport, MdShield } from "react-icons/md";
 import { Link } from "react-router-dom";

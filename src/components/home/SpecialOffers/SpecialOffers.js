@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Heading from "../Products/Heading";
 import Product from "../Products/Product";
-import { SplOfferData } from "../../../constants";
-import { useParams } from "react-router-dom";
+// import { SplOfferData } from "../../../constants";
+// import { useParams } from "react-router-dom";
 import apiInstance from "../../../axios/axios";
 
 const SpecialOffers = () => {

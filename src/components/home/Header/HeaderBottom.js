@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import  { useState, useRef, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
-import { HiOutlineMenuAlt4 } from "react-icons/hi";
+// import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart, FaHome } from "react-icons/fa";
 import Flex from "../../designLayouts/Flex";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { paginationItems } from "../../../constants";
+// import { useSelector } from "react-redux";
+// import { paginationItems } from "../../../constants";
 import { BsSuitHeartFill } from "react-icons/bs";
 import { CartContext } from "../../plugins/Context";
 import apiInstance from "../../../axios/axios";
 import UserData from "../../plugins/UserData";
 
 const HeaderBottom = () => {
-  const products = useSelector((state) => state.orebiReducer.products);
+  // const products = useSelector((state) => state.orebiReducer.products);
   const [show, setShow] = useState(false);
   const [showUser, setShowUser] = useState(false);
   const navigate = useNavigate();

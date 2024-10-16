@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { organic } from "../../../assets/images";
+// import { organic } from "../../../assets/images";
 import ShopNow from "../../designLayouts/buttons/ShopNow";
 import Image from "../../designLayouts/Image";
 import { motion } from "framer-motion";

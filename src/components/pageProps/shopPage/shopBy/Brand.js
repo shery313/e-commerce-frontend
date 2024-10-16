@@ -1,8 +1,8 @@
 import React, { useState,useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import NavTitle from "./NavTitle";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleBrand } from "../../../../redux/orebiSlice";
+// import { useDispatch } from "react-redux";
+// import { toggleBrand } from "../../../../redux/orebiSlice";
 import apiInstance from "../../../../axios/axios";
 import { BrandContext } from "../../../plugins/Context";
 
@@ -14,7 +14,7 @@ const Brand = () => {
   // const checkedBrands = useSelector(
   //   (state) => state.orebiReducer.checkedBrands
   // );
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [brands,setBrands]=useState([]);
   useEffect(() => {
     const fetchCategory = async () => {
@@ -48,9 +48,9 @@ const Brand = () => {
   //   },
   // ];
 
-  const handleToggleBrand = (brand) => {
-    dispatch(toggleBrand(brand));
-  };
+  // const handleToggleBrand = (brand) => {
+  //   dispatch(toggleBrand(brand));
+  // };
 
   return (
     <div>

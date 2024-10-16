@@ -6,11 +6,11 @@ import UserData from './UserData';
 function UseProfileData() {
     const [profile, setProfile] = useState([])
 
-    const axios = apiInstance
+    // const axios = apiInstance
     const userData = UserData()
 
     useEffect(() => {
-        axios.get(`user/profile/${userData?.user_id}/`).then((res) => {
+        apiInstance.get(`user/profile/${userData?.user_id}/`).then((res) => {
             setProfile(res.data);
         })
     }, [userData?.user_id])

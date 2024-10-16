@@ -4,10 +4,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdOutlineLabelImportant } from "react-icons/md";
 import Image from "../../designLayouts/Image";
 import Badge from "./Badge";
-import apiInstance from "../../../axios/axios";
+import apiInstance from "../../../axios/axios";                                                                                               
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { addToCart } from "../../plugins/AddToCart";
 import GetCurrentAddress from "../../plugins/UserCountry";
 import CartID from "../../plugins/CartID";
@@ -17,8 +17,8 @@ import { addToWishlist } from "../../plugins/addToWishList";
 
 const Product = (props) => {
   const axios = apiInstance;
-  const [cartCount, setCartCount] = useContext(CartContext);
-  const [isAddingToCart, setIsAddingToCart] = useState("Add To Cart");
+  const {setCartCount} = useContext(CartContext);
+  // const [isAddingToCart, setIsAddingToCart] = useState("Add To Cart");
   const currentAddress = GetCurrentAddress();
   const [qtyValue, setQtyValue] = useState(1);
   const [colorValue, setColorValue] = useState(props.colors[0]?.name || ""); // Default color
@@ -26,7 +26,7 @@ const Product = (props) => {
   const [showOptions, setShowOptions] = useState(false);
   const cart_id = CartID();
   const userData = UserData();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const productItem = props;
 
@@ -50,7 +50,7 @@ const Product = (props) => {
         sizeValue,
         colorValue,
         cart_id,
-        setIsAddingToCart
+        // setIsAddingToCart
       );
 
       const url = userData?.user_id
