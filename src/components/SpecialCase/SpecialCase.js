@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { MdSwitchAccount } from "react-icons/md";
-import { useSelector } from "react-redux";
-import apiInstance from "../../axios/axios";
+// import { useSelector } from "react-redux";
+// import apiInstance from "../../axios/axios";
 import { CartContext } from "../plugins/Context";
 import UserData from "../plugins/UserData";
 
@@ -13,16 +13,6 @@ const SpecialCase = () => {
   // const [products,setProducts]=useState([]);
   const userData=UserData()?.user_id
   const cartCount = useContext(CartContext)
-  // const fetchdata= async()=>{
-  //   const url = userData?.user_id ? `cart-list/${cart_id}/${userData?.user_id}/` : `cart-list/${cart_id}/`;
-  //       const response = await apiInstance.get(url);
-  //       setProducts(response.data);
-        
-  // // }
-  // useEffect(()=>{
-  //   fetchdata();
-
-  // },[cart_id])
 
   return (
     <div className="fixed top-52 right-2 z-20 hidden md:flex flex-col gap-2">
@@ -40,7 +30,7 @@ const SpecialCase = () => {
         </div>
       </Link>:
       <Link to="/signin">
-      <div className="bg-white w-16 h-[70px] rounded-md flex flex-col gap-1 text-[#33475b] justify-center items-center shadow-testShadow overflow-x-hidden group cursor-pointer">
+      <div className="bg-blue-100 w-16 h-[70px] rounded-md flex flex-col gap-1 text-blue-500 justify-center items-center shadow-testShadow overflow-x-hidden group cursor-pointer">
         <div className="flex justify-center items-center">
           <MdSwitchAccount className="text-2xl -translate-x-12 group-hover:translate-x-3 transition-transform duration-200" />
 

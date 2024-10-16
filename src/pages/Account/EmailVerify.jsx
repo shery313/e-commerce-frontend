@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 function EmailVerify() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const axios = apiInstance;
+    // const axios = apiInstance;
     const navigate = useNavigate();
 
     const [searchParams] = useSearchParams();
@@ -20,7 +20,7 @@ function EmailVerify() {
     formData.append('token', reset_token);
 
     useEffect(() => {
-        axios.post(`user/email-verify/`, formData)
+        apiInstance.post(`user/email-verify/`, formData)
             .then(res => {
                 console.log(res.data)
                 Swal.fire({
@@ -45,7 +45,7 @@ function EmailVerify() {
                 setError('Verification failed. Invalid or expired link.');
                 setLoading(false);
             });
-    }, [axios, formData, navigate]);
+    });
 
     return (
         <div className="flex items-center justify-center h-screen bg-gradient-to-r from-indigo-500 to-blue-500">

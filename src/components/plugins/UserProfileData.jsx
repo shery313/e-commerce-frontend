@@ -17,4 +17,4 @@ function UseProfileData() {
     return profile
 }
 
-export default UseProfileData
+export default UseProfileData;
