@@ -30,9 +30,14 @@ const useAuthStore = create((set, get) => ({
 }));
 
 // Conditionally attach the DevTools only in a development environment.
-if (import.meta.env.DEV) {
+// if (import.meta.env.DEV) {
+//     mountStoreDevtool('Store', useAuthStore);
+// }
+if (process.env.NODE_ENV === 'development') {
     mountStoreDevtool('Store', useAuthStore);
 }
+
+
 
 // Export the 'useAuthStore' for use in other parts of the application.
 export { useAuthStore };
