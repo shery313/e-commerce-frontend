@@ -26,7 +26,7 @@ function Notifications() {
                         <SideBar />
                         <div className="w-full lg:w-3/4 mt-4">
                             <section>
-                                <div className="bg-white shadow-md rounded-lg p-6">
+                                <div className="bg-white shadow-md rounded-lg p-6 ">
                                     <h3 className="text-2xl font-semibold mb-4 flex items-center">
                                         <i className="fas fa-bell mr-2" /> Notifications
                                     </h3>

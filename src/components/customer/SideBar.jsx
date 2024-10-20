@@ -39,7 +39,7 @@ function Sidebar() {
   }, [userProfile, notifications,userData?.user_id]);
 
   return (
-    <div className="lg:w-1/4 md:w-1/3 w-full md:m-5">
+    <div className="lg:w-1/4 md:w-1/3 w-full md:m-5 hidden md:block">
       {loading === false && (
         <div className="bg-white shadow-lg rounded-lg p-6">
           <div className="flex flex-col items-center justify-center mb-6">

@@ -61,9 +61,9 @@ function Wishlist() {
                         </h3>
 
                         {wishlist.length > 0 ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                                 {wishlist.map((w, index) => (
-                                    <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
+                                    <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden m-3">
                                         <Link to={`/product/${w.product.slug}`} className="block relative group">
                                             <img
                                                 src={w.product.image}
