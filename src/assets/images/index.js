@@ -162,6 +162,6 @@ export {
   espson2,
   organic,
 };
-export const API_BASE_URL = 'http://127.0.0.1:8000/api/v1/';
+export const API_BASE_URL = 'https://vivify-backend-2e2a6dca838b.herokuapp.com/api/v1/';
 export const PAYPAL_CLIENT_ID = 'test'
-export const SERVER_URL = 'http://127.0.0.1:8000/'
+export const SERVER_URL = 'https://vivify-backend-2e2a6dca838b.herokuapp.com/'
