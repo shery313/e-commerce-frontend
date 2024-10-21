@@ -19,14 +19,14 @@ function Notifications() {
     }, [userData?.user_id]);
 
     return (
-        <div>
+        <div className='md:pl-0 pl-[24px]'>
             <main className="mt-5 mb-20">
                 <div className="container ">
                     <section className="flex flex-col md:flex-row">
                         <SideBar />
                         <div className="w-full lg:w-3/4 mt-4">
                             <section>
-                                <div className="bg-white shadow-md rounded-lg p-6 ">
+                                <div className="bg-white shadow-md rounded-lg p-6  ">
                                     <h3 className="text-2xl font-semibold mb-4 flex items-center">
                                         <i className="fas fa-bell mr-2" /> Notifications
                                     </h3>

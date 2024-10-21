@@ -101,7 +101,7 @@ function Settings() {
     };
 
     return (
-        <div className="flex flex-col lg:flex-row mt-5">
+        <div className="flex flex-col lg:flex-row mt-5 p-5">
             <Sidebar />
             <main className="lg:w-3/4 w-full px-6 lg:px-10">
                 <div className="container">
