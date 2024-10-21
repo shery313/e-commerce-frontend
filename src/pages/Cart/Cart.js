@@ -15,7 +15,7 @@ import apiInstance from "../../axios/axios";
 import Swal from "sweetalert2";
 import { addToCart } from "../../components/plugins/AddToCart";
 // import { FaCircle } from "react-icons/fa";
-import { MdUpdate } from "react-icons/md";
+import { MdRefresh } from "react-icons/md";
 import UserData from "../../components/plugins/UserData";
 
 
@@ -241,7 +241,7 @@ const Cart = () => {
       {/* <Breadcrumbs title="Cart" /> */}
       {cart.length > 0 ? (
         <div className="pb-20">
-          <div className="font-sans max-w-5xl max-md:max-w-xl mx-auto bg-white py-4">
+          <div className="font-sans max-w-5xl max-md:max-w-xl mx-auto bg-white  rounded-3xl p-5 pb-0">
             <h1 className="text-3xl font-bold text-gray-800 text-center">Shopping Cart</h1>
 
             <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -285,10 +285,10 @@ const Cart = () => {
 
                             />
                           </div>
-                          <button className='mx-1' onClick={() => UpdateCart(cart_id, p.id, p.product.id, p.product.price, p.product.shipping_amount, p.color, p.size)} ><MdUpdate className=' h-10 w-10'/></button>
+                          <button className='mx-1' onClick={() => UpdateCart(cart_id, p.id, p.product.id, p.product.price, p.product.shipping_amount, p.color, p.size)} ><MdRefresh className=' h-10 w-10'/></button>
                         </div>
                       </div>
-                      <hr className="border-gray-300" />
+                      {/* <hr className="border-gray-300" /> */}
                     </div>
                   ))}
 
